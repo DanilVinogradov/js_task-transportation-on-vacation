@@ -8,22 +8,17 @@ function calculateRentalCost(days) {
   const oneDayRent = 40;
   const sevenDaysDiscount = 50;
   const threeDaysDiscount = 20;
-  let sumRent = 0;
+  const LONG_TERM_RENTAL_DAYS = 7;
+  const SHORT_TERM_RENTAL_DAYS = 3;
 
-  if (days >= 7) {
-    sumRent = days * oneDayRent - sevenDaysDiscount;
-
-    return sumRent;
+  if (days >= LONG_TERM_RENTAL_DAYS) {
+    return days * oneDayRent - sevenDaysDiscount;
   }
 
-  if (days >= 3) {
-    sumRent = days * oneDayRent - threeDaysDiscount;
-
-    return sumRent;
+  if (days >= SHORT_TERM_RENTAL_DAYS) {
+    return days * oneDayRent - threeDaysDiscount;
   } else {
-    sumRent = days * oneDayRent;
-
-    return sumRent;
+    return days * oneDayRent;
   }
 }
 
